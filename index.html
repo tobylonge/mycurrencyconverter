@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My Currency Converter</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="main-wrapper d-flex">
+            <div class="top-wrapper d-flex">
+                <div class="d-flex d-flex-end top-bar">
+                    <p>June 6, 2018</p>
+                    <!-- <i class="svg svg-menu"></i> -->
+                </div>
+                <div class="d-flex main-bar">
+                    <h2>Currency Converter</h2>
+                    <div class="d-flex d-flex-center">
+                        <input type="number" class="js-converter1" onkeyup="getCurrencyRate('v1')" data-key="top">
+                        <select class="js-currency1" onchange="getCurrencyRate('v1')">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-wrapper d-flex">
+                <div class="d-flex d-flex-center">
+                    <input type="number" class="js-converter2" onkeyup="getCurrencyRate('v2')" data-key="bottom">
+                    <select class="js-currency2" onchange="getCurrencyRate('v2')">
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+        <script src="localforage.min.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('service-worker.js')
+                .then(function(registration) {
+                    console.log('Registration successful, scope is:', registration.scope);
+                })
+                .catch(function(error) {
+                    console.log('Service worker registration failed, error:', error);
+                });
+            }
+        </script>
+    </body>
+</html>
